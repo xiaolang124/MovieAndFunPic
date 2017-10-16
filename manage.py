@@ -1,12 +1,12 @@
 # -*- encoding=utf-8 -*-
 
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from app.models import db
+from app.models import User
 
 
-class User(db.Model):
-    movieName = db.Column(db.String(80), unique=True, nullable=False,primary_key=True)
-    chineseName = db.Column(db.String(120), unique=True, nullable=False)
-
-    def __repr__(self):
-        return '<MovieName:%r,ChineseName:%r>' % self.movieName,self.chineseName
+db.drop_all()
+db.create_all()
+admin = User(movieName='123', chineseName='123123123')
+db.session.add(admin)
+db.session.commit()
+print(User.query.all())
