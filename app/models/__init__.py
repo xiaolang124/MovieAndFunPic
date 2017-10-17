@@ -8,4 +8,4 @@ app = Flask(__name__)
 app.config.from_pyfile('test_env.conf')
 db = SQLAlchemy(app)
 
-from app.models.model import User
+from app.models.model import Movie

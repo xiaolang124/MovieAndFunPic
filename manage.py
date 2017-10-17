@@ -1,12 +1,13 @@
 # -*- encoding=utf-8 -*-
 
 from app.models import db
-from app.models import User
+from app.models import Movie
 
 
 db.drop_all()
 db.create_all()
-admin = User(movieName='123', chineseName='123123123')
+admin = Movie(movie_name='123', chinese_name='123123123')
 db.session.add(admin)
 db.session.commit()
-print(User.query.all())
+print(Movie.query.all())
+
