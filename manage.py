@@ -17,7 +17,9 @@ if __name__ == '__main__':
     db.session.commit()
 
     movie = Movie.query.all()[0]
-    for comment in Comment.query.filter_by(movie_name=movie.movie_name).all():
-        print(comment)
+    comments = movie.comments.all()
+    print(comments)
+    # for comment in Comment.query.filter_by(movie_name=movie.movie_name).all():
+    #     print(comment)
     # query.get()使用的是主键获取
 

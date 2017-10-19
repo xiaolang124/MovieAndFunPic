@@ -13,6 +13,7 @@ class Movie(db.Model):
     cat_eyes_member_price = db.Column(db.Float, nullable=True)
     tao_bao_normal_price = db.Column(db.Float, nullable=True)
     tao_bao_member_price = db.Column(db.Float, nullable=True)
+    # dynamic则不一样，在访问属性的时候，并没有在内存中加载数据，而是返回一个query对象, 需要执行相应方法才可以获取对象，比如.all()
     comments = db.relationship('Comment', backref='comments', lazy='dynamic')
 
     def __init__(self, movie_name, chinese_name, director, actor):
