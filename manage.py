@@ -8,12 +8,12 @@ if __name__ == '__main__':
     db.create_all()
     test_movie = Movie(movie_name='123', chinese_name='123123123',
                        director='oho', actor='yo')
-    test_Comment_1 = Comment(score='3.7', content='what', movie=test_movie)
-    test_Comment_2 = Comment(score='3.8', content='ha', movie=test_movie)
+    test_Comment_1 = Comment(score='3.7', content='鬼', movie=test_movie)
+    test_Comment_2 = Comment(score='3.8', content='什么', movie=test_movie)
 
     db.session.add(test_movie)
-    # db.session.add(test_Comment_1)
-    # db.session.add(test_Comment_2)
+    db.session.add(test_Comment_1)
+    db.session.add(test_Comment_2)
     db.session.commit()
 
     movie = Movie.query.all()[0]
