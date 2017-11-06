@@ -6,7 +6,7 @@ from app.models import Movie, Comment
 if __name__ == '__main__':
     db.drop_all()
     db.create_all()
-    test_movie = Movie(movie_name='123', chinese_name='123123123',
+    test_movie = Movie(id='1234', chinese_name='123123123',
                        director='oho', actor='yo')
     test_Comment_1 = Comment(score='3.7', content='鬼', movie=test_movie)
     test_Comment_2 = Comment(score='3.8', content='什么', movie=test_movie)
