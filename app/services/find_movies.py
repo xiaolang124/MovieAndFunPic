@@ -24,6 +24,8 @@ def find_movies():
             movie_director = movie.attrs['data-director']
         if 'data-score' in movie.attrs.keys():
             movie_score = movie.attrs['data-score']
+            if movie_score is '0':
+                movie_score = None
         print(movie_id, movie_title, movie_actors, movie_director, movie_score)
         poster = movie.find('li', 'poster')
         comments_list = []
@@ -77,7 +79,7 @@ def find_movies():
                 #                 # print(comment)
                 #                 print(i)
         test_movie = Movie(id=movie_id, chinese_name=movie_title,
-                           director=movie_director, actor=movie_actors)
+                           director=movie_director, actor=movie_actors, score=movie_score)
         for comment in comments_list:
             test_comment = Comment(score=comment[0], content=comment[1], movie=test_movie)
 

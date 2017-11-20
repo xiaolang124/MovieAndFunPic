@@ -17,11 +17,12 @@ class Movie(db.Model):
     # dynamic则不一样，在访问属性的时候，并没有在内存中加载数据，而是返回一个query对象, 需要执行相应方法才可以获取对象，比如.all()
     comments = db.relationship('Comment', backref='comments', lazy='dynamic')
 
-    def __init__(self, id, chinese_name, director, actor):
+    def __init__(self, id, chinese_name, director, actor, score):
         self.id = id
         self.chinese_name = chinese_name
         self.director = director
         self.actor = actor
+        self.score = score
 
     def __repr__(self):
         return '<MovieName:%r, ChineseName:%r>' % (self.movie_name, self.chinese_name)
